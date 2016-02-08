@@ -1,25 +1,47 @@
-<h1>Listing pins</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Listing pins</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <h4 class="text-center ">current user: 
+      <% if user_signed_in? %>
+      <%= current_user.email %>
+      <% else %>
+      not signed in
+      <% end %>
+    </h4>
+  </div>
+  <div class="panel-body">
 
-  <tbody>
-    <% @pins.each do |pin| %>
-      <tr>
-        <td><%= pin.description %></td>
-        <td><%= link_to 'Show', pin %></td>
-        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>User</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @pins.each do |pin| %>
+        <tr>
+          <td><%= pin.description %></td>
+          <td><%= pin.user.email if pin.user %></td>
+          <td><%= link_to 'Show', pin %></td>
+          <% if pin.user == current_user %>
+            <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+            <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% else %>
+            <td colspan="2"></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="panel-footer">
+
+    <% if user_signed_in? %>
+    <%= link_to 'New Pin', new_pin_path %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Pin', new_pin_path %>
+  </div>
+</div>
