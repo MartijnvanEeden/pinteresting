@@ -1,12 +1,13 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<p id="notice"><%= notice %></p>
+		<strong>Description:</strong>
+		<%= @pin.description %>
 	</div>
 
 	<div class="panel-body">
 		<p>
-			<strong>Description:</strong>
-			<%= @pin.description %>
+			<strong>Image:</strong>
+			<%= image_tag @pin.image.url(:medium) %>
 		</p>
 	</div>
 
