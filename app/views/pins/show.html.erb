@@ -11,7 +11,7 @@
 			</div>
 			<div class="panel-footer center">
 				pin created by: 
-				<%= @pin.user.email %>
+				<strong><%= @pin.user.name %></strong>
 				<%if @pin.user == current_user %>
 				  &nbsp;
 					<strong><%= link_to raw('<span class="glyphicon glyphicon-edit"></span> Edit'), edit_pin_path(@pin) %></strong>
