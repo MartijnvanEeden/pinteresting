@@ -12,6 +12,7 @@ gem 'bootstrap-sass'
 gem 'puma'
 gem 'devise', '~> 3.5.6'
 gem 'paperclip', '~> 3.0'
+gem 'aws-sdk', '< 2.0'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
