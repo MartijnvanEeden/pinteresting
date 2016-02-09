@@ -3,8 +3,13 @@
 	<h2>
 		Please 
 		<%= link_to new_user_session_path, class: "btn btn-success btn-lg" do  %>
-		<span class="glyphicon glyphicon-log-in"></span> Sign in
-		<% end %> to continue.
+			<span class="glyphicon glyphicon-log-in"></span> Sign in
+		<% end %>
+		or
+		<%= link_to new_user_registration_path, class: "btn btn-warning btn-lg" do  %>
+			<span class="glyphicon glyphicon-log-in"></span> Sign up
+		<% end %>
+		to continue.
 	</h2>
 </div>
 
