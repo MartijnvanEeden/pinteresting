@@ -6,7 +6,7 @@ class PinsController < ApplicationController
   respond_to :html
 
   def index
-    @pins = Pin.all
+    @pins = Pin.all.order("updated_at DESC").limit(5)
     respond_with(@pins)
   end
 
