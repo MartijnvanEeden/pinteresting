@@ -6,13 +6,12 @@
 		<%= current_user.email %>
 	</p>
 	<p>
-		<%= link_to "show pins", pins_path, class: "btn btn-success" %>
+		<%= link_to pins_path, class: "btn btn-default" do %>
+			<span class="glyphicon glyphicon-eye-open"></span> Show Pins
+		<% end %>
 	</p>
 	<% else %>
-	<p>Click here to 
-		<%= link_to "Sign in"  , new_user_session_path, class: "btn btn-default btn-lg" %>
-		<%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
-	</p>
+		<p>Please sign in to use this site</p>
 	<% end %>
 </div>
 
